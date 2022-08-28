@@ -2,8 +2,10 @@
   "name": "sap-cc-hello",
   "version": "1.0.0",
   "description": "A Sample typescript based GitHub Action template for SAP Commerce Cloud",
-  "main": "index.js",
+  "main": "lib/main.js",
   "scripts": {
+    "build": "tsc",
+    "package": "ncc build --source-map --license licenses.txt",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
