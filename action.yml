@@ -2,9 +2,9 @@ name: 'SAP Commerce Cloud - Hello'
 description: 'A Sample typescript based GitHub Action template for SAP Commerce Cloud'
 author: 'Anilkumar Reddy'
 inputs:
-  milliseconds: # change this
+  name: # change this
     required: true
-    description: 'input description here'
+    description: 'User name'
     default: 'default value if applicable'
 runs:
   using: 'node16'
