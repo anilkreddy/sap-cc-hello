@@ -3,9 +3,9 @@ name: SAP Commerce - SonarQube
 
 on:
   push:
-    branches: [ "development" ]
+    branches: ['development']
   pull_request:
-    branches: [ "development" ]
+    branches: ['development']
 
 env:
   JDK_VERSION: '11'
@@ -33,15 +33,14 @@ jobs:
       - name: Import Vault Secrets
         uses: hashicorp/vault-action@v2.4.2
         with:
-          url: 
+          url:
           method: approle
           roleId: ${{ secrets.ROLE_ID }}
           secretId: ${{ secrets.SECRET_ID }}
           secrets: |
             secret/explorers_onedce/aws-np accessKeyId | AWS_ACCESS_KEY_ID ;
             secret/explorers_onedce/aws-np secretAccessKey | AWS_SECRET_ACCESS_KEY;
-#            secret/explorers_onedce/aws-np aws_region | AWS_REGION
-
+      #            secret/explorers_onedce/aws-np aws_region | AWS_REGION
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1.7.0
         with:
@@ -59,7 +58,7 @@ jobs:
         run: |
           unzip -o -q downloads/artifacts/CXCOMM201100P_21-70005693.ZIP hybris/bin/\* -d core-customize/
           unzip -o -q downloads/artifacts/CXCOMINTPK210200P_4-80005851.ZIP hybris/bin/\* -d core-customize/
-          unzip -o -q downloads/artifacts/cloudhotfolders_2011.zip -d core-customize/hybris/bin/modules      
+          unzip -o -q downloads/artifacts/cloudhotfolders_2011.zip -d core-customize/hybris/bin/modules
 
       - name: Set Ant Environment & Build
         run: |
